@@ -40,8 +40,8 @@ require('./config/db.php');
             <table class="table">
                 <thead>
                     <?php
-                        $id = $_GET['id'];
-                        $select = "SELECT * FROM nguoi_nhan_mau where db_id = $id";
+                        $reci_id = $_GET['reci_id'];
+                        $select = "SELECT * FROM nguoi_nhan_mau where reci_id = $reci_id";
                         $result = mysqli_query($conn, $select);
 
                         while($row = mysqli_fetch_assoc($result)) {

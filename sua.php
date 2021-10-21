@@ -58,9 +58,8 @@ if (isset($_POST['update'])) {
         <main class="container">
             <?php
 
-            $reci_id = $_GET['id'];
-            echo $reci_id;
-            die();
+            $reci_id = $_GET['reci_id'];
+            
             $query = mysqli_query($conn, "select * from 'nguoi_nhan_mau' where reci_id='$reci_id'");
             $row = mysqli_fetch_assoc($query);
             ?>
