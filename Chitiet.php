@@ -16,68 +16,90 @@ require('./config/db.php');
 
 </head>
 
-<body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Admin</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<body class="bg-light">
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">Danh mục</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./add.php">Thêm</a>
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.php">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="manager.php">Manager Users</a>
+                        </li>
+
+
                     </ul>
+                    <form class="d-flex me-auto">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
+    </div>
+    <div class="container">
         <div class="mt-4">
             <table class="table">
                 <thead>
                     <?php
-                        $reci_id = $_GET['reci_id'];
-                        $select = "SELECT * FROM nguoi_nhan_mau where reci_id = $reci_id";
-                        $result = mysqli_query($conn, $select);
+                    $reci_id = $_GET['reci_id'];
+                    $select = "SELECT * FROM nguoi_nhan_mau where reci_id = $reci_id";
+                    $result = mysqli_query($conn, $select);
 
-                        while($row = mysqli_fetch_assoc($result)) {
-                        ?>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
                         <tr>
-                        <th scope="col">#</th>
+                            <th scope="col">#</th>
                         </tr>
                         <tr>
-                       <th scope="col"> Họ và tên: <?php echo $row['reci_name']; ?></th>
+                            <th scope="col"> Họ và tên: <?php echo $row['reci_name']; ?></th>
                         </tr>
                         <tr>
-                        <th scope="col">Giới tính: <?php echo $row['reci_sex']; ?></th>
+                            <th scope="col">Tuổi: <?php echo $row['reci_age']; ?></th>
                         </tr>
                         <tr>
-                        <th scope="col">Tuổi: <?php echo $row['reci_age']; ?></th>
+                            <th scope="col">Nhóm máu: <?php echo $row['reci_bgrp']; ?></th>
                         </tr>
                         <tr>
-                        <th scope="col">Nhóm máu: <?php echo $row['reci_bgrp']; ?></th>
+                            <th scope="col">Số lượng máu cần nhận(ml): <?php echo $row['reci_bqnty']; ?></th>
                         </tr>
                         <tr>
-                        <th scope="col">Ngày đăng ký nhận máu: <?php echo $row['reci_reg_date']; ?></th>
+                            <th scope="col">Giới tính: <?php echo $row['reci_sex']; ?></th>
                         </tr>
                         <tr>
-                        <th scope="col">Số điện thoại: <?php echo $row['reci_phno']; ?></th>
+                            <th scope="col">Ngày đăng ký nhận: <?php echo $row['reci_reg_date']; ?></th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Số điện thoại: <?php echo $row['reci_phno']; ?></th>
                         </tr>
                         <tr>
                             <th scope="col">
-                                <a href="./sua.php?id=<?php echo $id; ?>"><i class="far fa-edit"></i></a>
-                                <a href="./delete.php?id=<?php echo $id; ?>"><i class="far fa-trash-alt" style="color: red;"></i></a>
+                                <a href="sua.php?id=<?php echo $row['reci_id']; ?>"><i class="far fa-edit"></i></a>
+                                <a href="xoa.php?id=<?php echo $row['reci_id']; ?>"><i class="far fa-trash-alt" style="color: red;"></i></a>
                             </th>
                         </tr>
                     <?php } ?>
-                    
+
                 </thead>
 
-                
+
             </table>
         </div>
     </div>

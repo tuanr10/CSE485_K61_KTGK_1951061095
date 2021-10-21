@@ -11,7 +11,7 @@ if (isset($_POST['update'])) {
     $reci_reg_date = $_POST['date'];
     $reci_phno = $_POST['phone'];
 
-    $sql = "UPDATE `blood_recipient` SET reci_name='$reci_name',reci_age = '$reci_age', reci_bgrp='$reci_bgrp', reci_bqnty='$reci_bqnty', reci_sex='$reci_sex', reci_reg_date='$reci_reg_date', reci_phno='$reci_phno' WHERE reci_id='$reci_id'";
+    $sql = "UPDATE `nguoi_nhan_mau` SET reci_name='$reci_name',reci_age = '$reci_age', reci_bgrp='$reci_bgrp', reci_bqnty='$reci_bqnty', reci_sex='$reci_sex', reci_reg_date='$reci_reg_date', reci_phno='$reci_phno' WHERE reci_id='$reci_id'";
 
     if ($conn->query($sql) === TRUE) {
         echo "Sửa thành công";
@@ -49,7 +49,7 @@ if (isset($_POST['update'])) {
                             <a class="nav-link active" aria-current="page" href="./index.php">Danh mục</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./add.php">Thêm</a>
+                            <a class="nav-link" href="./Add.php">Thêm</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +58,7 @@ if (isset($_POST['update'])) {
         <main class="container">
             <?php
 
-            $reci_id = $_GET['reci_id'];
+            $reci_id = $_GET['id'];
             
             $query = mysqli_query($conn, "select * from 'nguoi_nhan_mau' where reci_id='$reci_id'");
             $row = mysqli_fetch_assoc($query);
