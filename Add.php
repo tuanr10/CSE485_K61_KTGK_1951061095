@@ -8,9 +8,12 @@
     $reci_sex     = $_POST['txtGioiTinh'];
     $reci_reg_date     = $_POST['dateNgayDK'];
     $reci_phno  = $_POST['txtMobile'];
-
+    $conn = mysqli_connect('localhost','root','','hienmau');
+    if (!$conn){
+        die("Kết nối thất bại  .Kiểm tra lại các tham số    khai báo kết nối");
+    }
     $sql = "INSERT INTO nguoi_nhan_mau(reci_name, reci_age, reci_bgrp, reci_bqnty, reci_sex, reci_reg_date,reci_phno )
-    VALUES('$reci_name','$reci_age','$reci_bgrp ','$reci_bqnty,'$reci_sex','$reci_reg_date','$reci_phno')";
+    VALUES('$reci_name','$reci_age','$reci_bgrp ','$reci_bqnty','$reci_sex','$reci_reg_date','$reci_phno')";
 
     echo $sql."<br>";
 
@@ -57,7 +60,7 @@
             <div class="row">
               <div class="col-md-12">
                 <h2>Thêm người hiến máu </h2>
-                <form action="Add.php" method="post">
+                <form method="post">
                   
                   <div class="row mb-3">
                     <label for="txtHoTen" class="col-sm-2 col-form-label">Họ Và Tên</label>
