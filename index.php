@@ -65,6 +65,7 @@
                             <td><?php echo $row['reci_phno']; ?> </td>
                             <td><a href="sua.php?reci_id=<?php echo $row['reci_id']; ?>"><i class="fas fa-edit"></i></a></td>
                             <td><a href="delete.php?reci_id=<?php echo $row['reci_id']; ?>"><i class="fas fa-trash"></i></a></td>
+                            <td><a href="Chitiet.php?reci_id=<?php echo $row['reci_id']; ?>"><i class="fas fa-edit"></i></a></td>
                             </tr>
                             <?php
                                 $i++;
