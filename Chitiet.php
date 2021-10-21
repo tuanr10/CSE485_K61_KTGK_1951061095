@@ -84,7 +84,7 @@ require('./config/db.php');
                             <th scope="col">Giới tính: <?php echo $row['reci_sex']; ?></th>
                         </tr>
                         <tr>
-                            <th scope="col">Ngày đăng ký nhận: <?php echo $row['reci_reg_date']; ?></th>
+                            <th scope="col">Ngày đăng ký nhận: <?php echo $row['reci_reg_date,']; ?></th>
                         </tr>
                         <tr>
                             <th scope="col">Số điện thoại: <?php echo $row['reci_phno']; ?></th>
